@@ -9,16 +9,16 @@ def ConnScan(Target_Host, Target_Port):
         connskt = socket(AF_INET, SOCK_STREAM) 
         connskt.connect((Target_Host, Target_Port)) 
         connskt.send('Vionlent python\r\n')
-        result = connskt.recv(1024) # 값 결과저장
+        result = connskt.recv(1024)
         print ("[+] %d / TCP OPEN") % Target_Port
         print ("\n") + str(result) 
         connskt.close()
-    except: # 예외처리 
+    except: 
         print ("[-] %d TCP CLosed\n") % Target_Port
  
 
 def PortScan(Target_Host, Target_Port):
-    try: # 예외처리 
+    try:
         Target_IP = gethostbyname(Target_Host) 
     except:
         print ("[-] Cannot Resolve '%s' : Unknown Host\n") % Target_Host
@@ -26,7 +26,7 @@ def PortScan(Target_Host, Target_Port):
  
     try:
         Target_Name = gethostbyname(Target_IP) 
-        print ("\n[+] Scan Result For : ") + Target_Name[0] # 출력 
+        print ("\n[+] Scan Result For : ") + Target_Name[0]
     except:
         print ("\n[+] Scan Result For : " )+ Target_IP
     setdefaulttimeout(1)
